@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: "/ddematheu",
+  pathPrefix: "/prototype",
   siteMetadata: {
     title: `MUSA Prototype`,
     description: `TODO`,
