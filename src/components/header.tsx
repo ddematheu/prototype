@@ -11,27 +11,20 @@ export interface HeaderProps{
 
 export default function Header (props : HeaderProps) {
   function menuOnClickHandle(){
-    console.log("menu click");
-    console.log(props.menuState);
     return props.toggleMenu(!props.menuState);
   }
-  function logoOnClickHandle(){
-    console.log("menu click");
-  }
+
   return(
     <header
       style={{
-        background: `lightblue`,
-        zIndex:1
+        background: `white`,
+        zIndex:1,
+        borderBottom: '3px solid black'
       }}
       >
-      <div>
         <Menu 
         menuOnClick={menuOnClickHandle}/>
-      </div>
-      <div>
-        <Logo siteTitle={props.siteTitle} logoOnClick={logoOnClickHandle}/>
-      </div>
+        <Logo />
     </header>
   );
 }

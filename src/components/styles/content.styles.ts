@@ -1,7 +1,7 @@
 import CSS from 'csstype';
 
 export const contentStyle: CSS.Properties = {
-    color: 'white',
+    color: 'black',
     paddingTop: '250px',
     marginLeft: "30%",
     marginRight: "30%",

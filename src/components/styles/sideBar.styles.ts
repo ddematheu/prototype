@@ -7,10 +7,11 @@ export const sideBarStyle: CSS.Properties = {
     zIndex: 0,
     top: 0,
     left: '80%',
-    backgroundColor: 'gray',
+    backgroundColor: 'white',
     overflowX: 'hidden',
     transition: '0.5s',
-    paddingTop: '100px'
+    paddingTop: '100px',
+    borderLeft: '3px solid black'
 }
 
 export const sideBarTitleStyle: CSS.Properties = {

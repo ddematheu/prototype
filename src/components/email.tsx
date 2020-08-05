@@ -3,19 +3,19 @@ import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-import {logoStyle} from './styles/logo.styles';
+import {emailStyle} from './styles/email.styles';
 
-export interface LogoProps{
+export interface EmailProps{
 }
 
-export default function Logo (props: LogoProps): JSX.Element{
+export default function Email (props: EmailProps): JSX.Element{
     
     const data = useStaticQuery(
     graphql`
         query {
-        logo: file(relativePath: { eq: "musaLogo.png" }) {
+        email: file(relativePath: { eq: "musaEmail.jpg" }) {
             childImageSharp {
-            fixed(width: 200, height: 45) {
+            fixed(width: 139, height: 25) {
                 ...GatsbyImageSharpFixed
             }
             }
@@ -24,15 +24,15 @@ export default function Logo (props: LogoProps): JSX.Element{
     `)
 
     return (
-    <div style={logoStyle}>
+    <div style={emailStyle}>
         <Link
-        to="/"
+        to="mailto:info@musaasvat.com"
         style={{
             color: `black`,
             textDecoration: `none`,
         }}
         >
-        <Img fixed={data.logo.childImageSharp.fixed} />
+        <Img fixed={data.email.childImageSharp.fixed} />
         </Link>
     </div>
     );
