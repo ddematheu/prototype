@@ -1,41 +1,36 @@
-import React, { Component } from "react"
+import React, { useState } from "react"
+import PropTypes from "prop-types"
+import { useStaticQuery, graphql } from "gatsby"
+import { projectColumn1, projectColumn2, projectImage, projectPageStyle} from "./styles/projectPage.styles"
+import Img, { FixedObject } from "gatsby-image"
 
-import Logo from './logo';
-import {imageGalleryStyle, imageStyle} from './styles/imageGallery.styles';
-import Email from './email';
-
-import Gallery from 'react-grid-gallery';
-
-import { contentStyle, contentTextStyle } from './styles/content.styles';
-
-export interface ProjectsProps{
-    
+export interface ProjectsPageProps{
+    layoutState: string;
+    changeLayout: any;
+    projectSelect: string;
+    selectProject: any;
 }
 
-export default function Projects (props: ProjectsProps){
-    const images = [
-        "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-        "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-        "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-        "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-        "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-        "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-        "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg"
-    ]
+export default function Projects (props:ProjectsPageProps){
 
-    function imageGalleryGenerator () {
-        const imageGallery = images.map( (value: string, index: number ) => (
-                <img style={imageStyle} src={value}/>
-            )
-        );
-        return imageGallery
-    }
- 
-    return(
+  const data = useStaticQuery(
+    graphql`
+        query {
+        image1: file(relativePath: { eq: "building1.png" }) {
+            childImageSharp {
+              fixed(width: 2388, height: 1171) {
+                ...GatsbyImageSharpFixed
+              }
+            }
+          }
+        }`)
+
+
+  return (
     <>
-        <div style={imageGalleryStyle}>
-            {imageGalleryGenerator()}
-        </div>
+    <div style={projectPageStyle}>
+      <Img style={projectImage} fixed={data.image1.childImageSharp.fixed} />
+    </div>
     </>
-    );
+  )
 }

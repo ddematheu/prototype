@@ -1,27 +1,26 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+import "../css/typography.css";
 
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
 import Content from './content';
-import Projects from './projects';
-import SideBar from './sideBar';
-
 import Header from "./header"
 import './styles/layout.css'
+import About from "./about";
+import Contact from "./contact";
+import ProjectPage from "./project-page";
+import Projects from "./projects";
 
 export interface LayoutProps{
+
 }
 
 export enum LayoutTypes {
   Home = "Home",
   Projects = "Projects",
+  About = "About",
+  Contact = "Contact",
+  Selected = "Selected"
 }
 
 export default function Layout (props:LayoutProps){
@@ -35,45 +34,48 @@ export default function Layout (props:LayoutProps){
     }
   `)
 
-  const [menuState, setMenuState] = useState(false);
-
   const [layoutState, setLayoutState] = useState(LayoutTypes.Home);
+  const [projectSelect, setProject] = useState(null);
 
   return (
     <>
       <Header 
-      menuState = {menuState}
-      siteTitle = {data.site.siteMetadata.title} 
-      toggleMenu = {setMenuState} />
-      <div
-        style={{
-          margin: `0 auto`,
-          height: '100%',
-          width: '100%',
-          //backgroundImage: 'url(https://wallpaperaccess.com/full/405435.jpg)',
-          //backgroundSize: '100% 100%',
-          backgroundColor: 'white',
-          position: 'fixed',
-          zIndex: -1
-        }}>
-        {
-          layoutState === LayoutTypes.Home &&
-          <Content />
-        }  
-        {
-          layoutState === LayoutTypes.Projects &&
-          <Projects />
-        }
-        {
-          menuState &&
-          <SideBar
-          menuState = {menuState}
-          toggleMenu = {setMenuState}
-          layoutState = {layoutState}
-          toggleLayout = {setLayoutState}
-           />
-        }
-      </div>
+      layoutState = {layoutState}
+      changeLayout = {setLayoutState}
+      siteTitle = {data.site.siteMetadata.title}
+      />
+      {
+        layoutState === LayoutTypes.Home &&
+        <Content 
+        layoutState = {layoutState}
+        changeLayout = {setLayoutState}
+        projectSelect = {projectSelect}
+        selectProject = {setProject}
+        />
+      }  
+      {
+        layoutState === LayoutTypes.Projects &&
+        <Projects 
+        layoutState = {layoutState}
+        changeLayout = {setLayoutState}
+        projectSelect = {projectSelect}
+        selectProject = {setProject}
+        />
+      }
+      {
+        layoutState === LayoutTypes.About &&
+        <About />
+      }
+      {
+        layoutState === LayoutTypes.Contact &&
+        <Contact />
+      }
+      {
+        layoutState === LayoutTypes.Selected &&
+        <ProjectPage 
+        projectName = {projectSelect}
+        />
+      }
     </>
   )
 }

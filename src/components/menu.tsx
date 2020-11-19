@@ -1,30 +1,26 @@
 import React, { Component } from "react"
-
-import {menuStyle} from './styles/menu.styles';
+import {projectStyle, aboutStyle, contactStyle, menuStyle} from './styles/menu.styles';
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import { LayoutTypes } from "./layout";
 
 export interface MenuProps{
-    menuOnClick(): any;
+    menuOnClick(option): any;
 }
 
 export default function Menu (props: MenuProps): JSX.Element{
-    const data = useStaticQuery(
-        graphql`
-            query {
-            burger: file(relativePath: { eq: "burger.png" }) {
-                childImageSharp {
-                fixed(width: 45, height: 45) {
-                    ...GatsbyImageSharpFixed
-                }
-                }
-            }
-            }
-        `)
 
     return (
-    <div style={menuStyle} onClick={props.menuOnClick}>
-        <Img fixed={data.burger.childImageSharp.fixed} />
+    <div style={menuStyle}>
+        <div style={contactStyle} onClick={(e) => props.menuOnClick(LayoutTypes.Contact)}>
+            Contacto
+        </div>
+        <div style={aboutStyle} onClick={(e) => props.menuOnClick(LayoutTypes.About)}> 
+            Nosotros
+        </div>
+        <div style={projectStyle} onClick={(e) => props.menuOnClick(LayoutTypes.Projects)}>
+            Proyectos
+        </div>
     </div>
     )
 }
