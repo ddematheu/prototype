@@ -1,41 +1,60 @@
 import CSS from 'csstype';
 
-export const contactStyle: CSS.Properties = {
-
+export const contactPageStyle: CSS.Properties = {
+    width: '700px',
+    paddingLeft: '3.4vw',
+    paddingRight: '3.4vw',
+    paddingTop: '20.07vh',
+    paddingBottom: '5vh',
+    margin: '0',
+    height: '100%',
 }
 
 export const contactTitleStyle: CSS.Properties = {
-    position: 'absolute',
-    width: '102px',
+    width: '100%',
     height: '29px',
-    left: '86px',
-    top: '289px',
-    color: '#8B8B8B'
+    color: '#8B8B8B',
+    fontFamily: 'Favorit',
+    fontStyle: 'normal',
+    textDecoration: 'underline',
+    fontWeight: 400,
+    fontSize: '24px',
+    lineHeight: '29px',
 }
 
 export const contactAddressStyle: CSS.Properties = {
-    position: 'absolute',
-    width: '762px',
+    width: '100%',
     height: '180px',
-    left: '87px',
-    top: '353px',
-    color: '#8B8B8B'
+    paddingTop: '35px',
+    color: '#8B8B8B',
+    fontFamily: 'Favorit',
+    fontStyle: 'normal',
+    fontWeight: 400,
+    fontSize: '24px',
+    lineHeight: '29px',
 }
 
 export const contactCareersStyle: CSS.Properties = {
-    position: 'absolute',
-    width: '85px',
-    height: '29px',
-    left: '86px',
-    top: '655px',
-    color: '#8B8B8B'
+    width: '100%',
+    height: '151px',
+    paddingTop: '122px',
+    color: '#8B8B8B',
+    fontFamily: 'Favorit',
+    fontStyle: 'normal',
+    textDecoration: 'underline',
+    fontWeight: 400,
+    fontSize: '24px',
+    lineHeight: '29px',
 }
 
 export const contactCareerDescriptionStyle: CSS.Properties = {
-    position: 'absolute',
-    width: '762px',
-    height: '300px',
-    left: '87px',
-    top: '719px',
-    color: '#8B8B8B'
+    width: '100%',
+    height: '100%',
+    paddingTop: '35px',
+    color: '#8B8B8B',
+    fontFamily: 'Favorit',
+    fontStyle: 'normal',
+    fontWeight: 400,
+    fontSize: '24px',
+    lineHeight: '29px',
 }

@@ -8,7 +8,7 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import {aboutTitleStyle, aboutDescriptionStyle, } from './styles/about.styles';
+import {aboutTitleStyle, aboutDescriptionStyle, aboutStyle} from './styles/about.styles';
 
 export interface AboutProps{
 
@@ -18,6 +18,7 @@ export default function About (props:AboutProps){
 
   return (
     <>
+    <div style={aboutStyle}>
         <div>
             <div style={aboutTitleStyle}>Nosotros</div>
             <div style={aboutDescriptionStyle}>
@@ -26,6 +27,7 @@ export default function About (props:AboutProps){
 <br/><br/> Cada diseño se deriva del enfoque creativo de la empresa y de su investigación analítica para satisfacer las necesidades de cada cliente, permaneciendo siempre dentro de los límites de su diseño estético. Cada cliente recibe un proyecto impulsado fundamentalmente por sus necesidades. Se busca un equipo que lleve los valores intrínsecos de un buen diseño, buenos acabados y atención al detalle para satisfacer las necesidades de los clientes y encontrar las soluciones más sostenibles para todas las partes involucradas. Musa Arquitectos está conformado por talentos con conocimiento de historia, diseño y sostenibilidad; buscando siempre las mejores referencias y habilidades en cualquier persona perteneciente a su equipo. Su motivación no sólo se basa en arquitectura, sino en la habilidad de traer buen diseño y servicio a la Ciudad de Panamá, desde un punto de vista nuevo y pragmático, con pensamientos estratégicos y a la vez estéticos.
             </div>
         </div>
+      </div>
     </>
   )
 }

@@ -19,8 +19,8 @@ export default function Header (props : HeaderProps) {
 
   return(
     <header style={headerStyle}>
-        <Menu menuOnClick={headerOnClick}/>
         <Logo logoOnClick={headerOnClick}/>
+        <Menu menuOnClick={headerOnClick}/>
     </header>
   );
 }

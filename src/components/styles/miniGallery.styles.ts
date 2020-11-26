@@ -1,9 +1,18 @@
 import CSS from 'csstype';
 
+export const miniGalleryTotal: CSS.Properties = {
+    width: '100%',
+    paddingLeft: '33.99vw',
+    paddingTop: '42.85vh',
+    paddingRight: '3.36vw',
+    margin: '0',
+    height: '92.85vh',
+}
+
 export const miniGalleryTitle: CSS.Properties = {
     alignContent: "left",
     width: '40vw',
-    paddingBottom: '1vh',
+    paddingBottom: '1.46vh',
     color: '#8B8B8B',
     fontFamily: 'Favorit',
     fontStyle: 'normal',
@@ -13,25 +22,10 @@ export const miniGalleryTitle: CSS.Properties = {
     textTransform: 'capitalize',
 }
 
-export const miniGallery: CSS.Properties = {
-    position: 'fixed',
-    width: '100vw',
-    margin: '0'
-}
-
-export const miniGalleryTotal: CSS.Properties = {
-    position: 'fixed',
-    width: '100vw',
-    paddingLeft: '35vw',
-    paddingTop: '40vh',
-    paddingRight: '6vh',
-    margin: '0'
-}
-
 export const miniGalleryImage: CSS.Properties = {
     float: 'left',
     maxWidth: '100%',
-    maxHeight: '498px',
+    maxHeight: '34.59vh',
     margin: '0px'
 }
 
@@ -49,6 +43,7 @@ export const miniGalleryColumn2: CSS.Properties = {
 
 export const miniGallerySubText: CSS.Properties = {
     alignContent: 'left',
+    paddingTop: '2.37vh',
     clear: 'both',
     color: '#8B8B8B',
     fontFamily: 'Favorit',

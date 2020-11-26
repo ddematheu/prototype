@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { projectColumn1, projectColumn2, projectColumns, projectDescription, projectImage, projectPageStyle, projectTitle} from "./styles/projectPage.styles"
+import { projectColumn1, projectColumn2, projectColumns, projectDescription, projectTopImage, projectPageStyle, projectTitle, projectImageTwo, projectImageThree, projectDescriptionDetails} from "./styles/projectPage.styles"
 import Img, { FixedObject } from "gatsby-image"
 
 export interface ProjectPageProps{
@@ -12,37 +12,74 @@ export default function ProjectPage (props:ProjectPageProps){
 
   const data = useStaticQuery(
     graphql`
-        query {
-        image1: file(relativePath: { eq: "building1.png" }) {
-            childImageSharp {
-              fixed(width: 2388, height: 1171) {
-                ...GatsbyImageSharpFixed
+      {
+        contentfulProject(id: {eq: "658aac1f-2921-50bd-8935-a7f81dc31110"}) {
+          name
+          topImage {
+            fixed(width: 2388, height: 1171) {
+              src
+            }
+          }
+          image1 {
+            fixed(width: 1169, height: 1171) {
+              src
+            }
+          }
+          image2 {
+            fixed(width: 1169, height: 764) {
+              src
+            }
+          }
+          childContentfulProjectEquipoRichTextNode {
+            content {
+              content {
+                value
               }
             }
           }
-        }`)
-
+          childContentfulProjectDescriptionTextNode {
+            internal {
+              content
+            }
+          }
+          ano
+          uso
+          location
+        }
+      }
+    `)
 
   return (
     <>
     <div style={projectPageStyle}>
-      <Img style={projectImage} fixed={data.image1.childImageSharp.fixed} />
-
+      <Img style={projectTopImage} fixed={data.contentfulProject.topImage.fixed} />
       <div style={projectColumns}>
         <div style={projectColumn1}>
-
+          <div style={projectImageTwo}>
+            <Img style={projectImageTwo} fixed={data.contentfulProject.image1.fixed} />
+          </div>
+          <div style={projectImageThree}>
+            <Img style={projectImageThree} fixed={data.contentfulProject.image2.fixed} />
+          </div>
         </div>
 
         <div style={projectColumn2}>
           <div style={projectTitle}>
-            SF76
+            {data.contentfulProject.name}
           </div>
-          <div style={projectDescription}>
-          Cada diseño se deriva del enfoque creativo de la empresa y de su investigación analítica para satisfacer las necesidades de cada cliente, permaneciendo siempre dentro de los límites de su diseño estético. Cada cliente recibe un proyecto impulsado fundamentalmente por sus necesidades. Se busca un equipo que lleve los valores intrínsecos de un buen diseño, buenos acabados y atención al detalle para satisfacer las necesidades de los clientes y encontrar las soluciones más sostenibles para todas las partes involucradas. Musa Arquitectos está conformado por talentos con conocimiento de historia, diseño y sostenibilidad; buscando siempre las mejores referencias y habilidades en cualquier persona perteneciente a su equipo. Su motivación no sólo se basa en arquitectura, sino en la habilidad de traer buen diseño y servicio a la Ciudad de Panamá, desde un punto de vista nuevo y pragmático, con pensamientos estratégicos y a la vez estéticos.
-          <br/><br/>
-          Cada diseño se deriva del enfoque creativo de la empresa y de su investigación analítica para satisfacer las necesidades de cada cliente, permaneciendo siempre dentro de los límites de su diseño estético. Cada cliente recibe un proyecto impulsado fundamentalmente por sus necesidades. Se busca un equipo que lleve los valores intrínsecos de un buen diseño, buenos acabados y atención al detalle para satisfacer las necesidades de los clientes y encontrar las soluciones más sostenibles para todas las partes involucradas. Musa Arquitectos está conformado por talentos con conocimiento de historia, diseño y sostenibilidad; buscando siempre las mejores referencias y habilidades en cualquier persona perteneciente a su equipo. Su motivación no sólo se basa en arquitectura, sino en la habilidad de traer buen diseño y servicio a la Ciudad de Panamá, desde un punto de vista nuevo y pragmático, con pensamientos estratégicos y a la vez estéticos.
-          <br/><br/>
-          Cada diseño se deriva del enfoque creativo de la empresa y de su investigación analítica para satisfacer las necesidades de cada cliente, permaneciendo siempre dentro de los límites de su diseño estético. Cada cliente recibe un proyecto impulsado fundamentalmente por sus necesidades. Se busca un equipo que lleve los valores intrínsecos de un buen diseño, buenos acabados y atención al detalle para satisfacer las necesidades de los clientes y encontrar las soluciones más sostenibles para todas las partes involucradas. Musa Arquitectos está conformado por talentos con conocimiento de historia, diseño y sostenibilidad; buscando siempre las mejores referencias y habilidades en cualquier persona perteneciente a su equipo. Su motivación no sólo se basa en arquitectura, sino en la habilidad de traer buen diseño y servicio a la Ciudad de Panamá, desde un punto de vista nuevo y pragmático, con pensamientos estratégicos y a la vez estéticos.
+          <div style={projectDescription}> {data.contentfulProject.childContentfulProjectDescriptionTextNode.internal.content} </div>
+          <div style={projectDescriptionDetails}>
+            <u>Ubicacion</u><br/>
+            {data.contentfulProject.location} <br/><br/>
+            <u>Ano</u><br/>
+            {data.contentfulProject.ano} <br/><br/>
+            <u>Uso</u><br/>
+            {data.contentfulProject.uso} <br/><br/>
+            <u>Equipo</u><br/>
+            {data.contentfulProject.childContentfulProjectEquipoRichTextNode.content[0].content[0].value}
+            <br/><br/>
+            En colaboracion con:<br/>
+            sketch.com.pa<br/>
           </div>
         </div>
       </div>

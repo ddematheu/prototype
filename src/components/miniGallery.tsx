@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import {miniGalleryTitle, miniGalleryTotal,miniGalleryImage, miniGalleryColumn1, miniGalleryColumn2, miniGallerySubText} from './styles/miniGallery.styles';
-import {imageGalleryStyle, imageStyle} from './styles/imageGallery.styles';
 import { useStaticQuery, graphql } from "gatsby"
 import Img, { FixedObject } from "gatsby-image"
 import { LayoutTypes } from "./layout";
@@ -50,9 +49,6 @@ export default function MiniGallery (props: MiniGalleryProps): JSX.Element{
                     <Img fixed={value} style={miniGalleryImage}/>
                     <div style={miniGallerySubText}>
                         {index == 0 ? "SF76": "BBM"}
-                    </div>
-                    <div style={miniGallerySubText}>
-                        Leer Mas
                     </div>
                 </div>
             )
