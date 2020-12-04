@@ -6,77 +6,42 @@ import Img, { FixedObject } from "gatsby-image"
 
 export interface ProjectPageProps{
     projectName: string;
+    data: any;
 }
 
 export default function ProjectPage (props:ProjectPageProps){
 
-  const data = useStaticQuery(
-    graphql`
-      {
-        contentfulProject(id: {eq: "658aac1f-2921-50bd-8935-a7f81dc31110"}) {
-          name
-          topImage {
-            fixed(width: 2388, height: 1171) {
-              src
-            }
-          }
-          image1 {
-            fixed(width: 1169, height: 1171) {
-              src
-            }
-          }
-          image2 {
-            fixed(width: 1169, height: 764) {
-              src
-            }
-          }
-          childContentfulProjectEquipoRichTextNode {
-            content {
-              content {
-                value
-              }
-            }
-          }
-          childContentfulProjectDescriptionTextNode {
-            internal {
-              content
-            }
-          }
-          ano
-          uso
-          location
-        }
-      }
-    `)
+  const project = props.data.allContentfulProject.edges.find( (edge) => edge.node.id === props.projectName);
+  console.log(project)
 
   return (
     <>
     <div style={projectPageStyle}>
-      <Img style={projectTopImage} fixed={data.contentfulProject.topImage.fixed} />
+      <Img style={projectTopImage} fixed={project.node.topImage.fixed} />
       <div style={projectColumns}>
         <div style={projectColumn1}>
           <div style={projectImageTwo}>
-            <Img style={projectImageTwo} fixed={data.contentfulProject.image1.fixed} />
+            <Img style={projectImageTwo} fixed={project.node.image1.fixed} />
           </div>
           <div style={projectImageThree}>
-            <Img style={projectImageThree} fixed={data.contentfulProject.image2.fixed} />
+            <Img style={projectImageThree} fixed={project.node.image2.fixed} />
           </div>
         </div>
 
         <div style={projectColumn2}>
           <div style={projectTitle}>
-            {data.contentfulProject.name}
+            {project.node.name}
           </div>
-          <div style={projectDescription}> {data.contentfulProject.childContentfulProjectDescriptionTextNode.internal.content} </div>
+          <div style={projectDescription}> {project.node.childContentfulProjectDescriptionTextNode.internal.content} </div>
           <div style={projectDescriptionDetails}>
             <u>Ubicacion</u><br/>
-            {data.contentfulProject.location} <br/><br/>
+            {project.node.location} <br/><br/>
             <u>Ano</u><br/>
-            {data.contentfulProject.ano} <br/><br/>
+            {project.node.ano} <br/><br/>
             <u>Uso</u><br/>
-            {data.contentfulProject.uso} <br/><br/>
+            {project.node.uso} <br/><br/>
             <u>Equipo</u><br/>
-            {data.contentfulProject.childContentfulProjectEquipoRichTextNode.content[0].content[0].value}
+            {project.node.childContentfulProjectEquipoRichTextNode.content[0].content[0].value}
             <br/><br/>
             En colaboracion con:<br/>
             sketch.com.pa<br/>

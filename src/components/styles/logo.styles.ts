@@ -10,7 +10,7 @@ export const logoStyle: CSS.Properties = {
     fontFamily: 'Favorit',
     fontStyle: 'normal',
     fontWeight: 'normal',
-    fontSize: '28px',
+    fontSize: '20px',
     lineHeight: '34px',
     letterSpacing: '0.05em',
     zIndex: 10,

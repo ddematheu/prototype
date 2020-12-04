@@ -7,7 +7,7 @@ export const aboutStyle: CSS.Properties = {
     paddingTop: '20.07vh',
     paddingBottom: '5vh',
     margin: '0',
-    height: '1005',
+    height: '91vh',
 }
 
 export const aboutTitleStyle: CSS.Properties = {
@@ -18,8 +18,8 @@ export const aboutTitleStyle: CSS.Properties = {
     fontStyle: 'normal',
     textDecoration: 'underline',
     fontWeight: 400,
-    fontSize: '24px',
-    lineHeight: '29px',
+    fontSize: '16px',
+    lineHeight: '20px',
 }
 
 export const aboutDescriptionStyle: CSS.Properties = {
@@ -30,6 +30,6 @@ export const aboutDescriptionStyle: CSS.Properties = {
     fontFamily: 'Favorit',
     fontStyle: 'normal',
     fontWeight: 400,
-    fontSize: '24px',
-    lineHeight: '29px',
+    fontSize: '16px',
+    lineHeight: '20px',
 }

@@ -9,46 +9,23 @@ export interface MiniGalleryProps{
     changeLayout: any;
     projectSelect: string;
     selectProject: any;
+    data: any;
 }
 
 export default function MiniGallery (props: MiniGalleryProps): JSX.Element{
 
     function imageOnClick(option){
+        window.scrollTo(0, 0)
         props.selectProject(option);
         return props.changeLayout(LayoutTypes.Selected);
       }
 
-    const data = useStaticQuery(
-        graphql`
-            query {
-            image1: file(relativePath: { eq: "building1.png" }) {
-                childImageSharp {
-                fixed(width: 891, height: 498) {
-                    ...GatsbyImageSharpFixed
-                }
-                }
-            }
-            image2: file(relativePath: { eq: "building2.png" }) {
-                childImageSharp {
-                fixed(width: 654, height: 498) {
-                    ...GatsbyImageSharpFixed
-                }
-                }
-            }
-            }
-        `)
-        
-    const images = [
-        data.image1.childImageSharp.fixed,
-        data.image2.childImageSharp.fixed,
-    ]
-
     function imageGalleryGenerator () {
-        const imageGallery = images.map( (value: FixedObject, index: number ) => (
-                <div key={index} style={index == 0 ? miniGalleryColumn1: miniGalleryColumn2} onClick={(e) => imageOnClick('Project Name')}>
-                    <Img fixed={value} style={miniGalleryImage}/>
+        const imageGallery = props.data.allContentfulProject.edges.slice(0,2).map( (value: any, index: number ) => (
+                <div key={value.node.id} style={index == 0 ? miniGalleryColumn1: miniGalleryColumn2} onClick={(e) => imageOnClick(value.node.id)}>
+                    <Img fixed={value.node.thumbnail.fixed} style={miniGalleryImage}/>
                     <div style={miniGallerySubText}>
-                        {index == 0 ? "SF76": "BBM"}
+                        {value.node.name}
                     </div>
                 </div>
             )
@@ -58,9 +35,9 @@ export default function MiniGallery (props: MiniGalleryProps): JSX.Element{
 
     return (
     <div style={miniGalleryTotal}>
-        <div style={miniGalleryTitle}>
+       {/* <div style={miniGalleryTitle}>
             Proyectos Destacados
-        </div>
+        </div> */}
         {imageGalleryGenerator()}
     </div>
     )

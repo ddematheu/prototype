@@ -8,6 +8,7 @@ export interface HomeProps{
     changeLayout: any;
     projectSelect: string;
     selectProject: any;
+    data: any;
 }
 
 export default function Home (props: HomeProps){
@@ -18,6 +19,7 @@ export default function Home (props: HomeProps){
             changeLayout = {props.changeLayout}
             projectSelect = {props.projectSelect}
             selectProject = {props.selectProject}
+            data = {props.data}
             />
     </div>
     );

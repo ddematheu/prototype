@@ -17,20 +17,20 @@ export const socialStyle: CSS.Properties = {
 }
 
 export const facebookStyle: CSS.Properties = {
-    height: '22px',
-    width: '15px',
+    height: '16px',
+    width: '16px',
     marginRight: '18px'
 }
 
 export const twitterStyle: CSS.Properties = {
-    height: '17px',
-    width: '19px',
+    height: '16px',
+    width: '16px',
     marginRight: '18px'
 }
 
 export const instagramStyle: CSS.Properties = {
-    height: '22px',
-    width: '22px',
+    height: '16px',
+    width: '16px',
     marginRight: '18px'
 }
 
@@ -39,7 +39,7 @@ export const copyrightStyle: CSS.Properties = {
     fontFamily: 'Favorit',
     fontStyle: 'normal',
     fontWeight: 400,
-    fontSize: '20px',
+    fontSize: '12px',
     lineHeight: '24px',
     color: '#8B8B8B',
 }

@@ -4,33 +4,49 @@ import CSS from 'csstype';
 export const projectsStyle: CSS.Properties = {
     position:'relative',
     height: '100%',
-    paddingTop: '20.07vh',
+    paddingTop: '15.07vh',
     paddingLeft: '3.4vw',
     paddingRight: '3.4vw',
     color: '#8B8B8B',
     fontFamily: 'Favorit',
     fontStyle: 'normal',
     fontWeight: 400,
-    fontSize: '24px',
-    lineHeight: '29px',
+    fontSize: '16px',
+    lineHeight: '20px',
 }
 
 export const projectsDescriptionStyle: CSS.Properties = {
     width: '27.35vw',
     minWidth: '600px',
-    height: '200px',
+    height: '17.71vh',
+    paddingBottom: '6.25vh',
 }
 
 export const galleryStyle: CSS.Properties = {
     position:'relative',
     width: '100%',
-    height: '310.17vh',
+    maxHeight: '310.17vh',
+    lineHeight: 0,
+    WebkitColumnCount: 3,
+    WebkitColumnGap: '1.96vw',
+    MozColumnCount: 3,
+    MozColumnGap: '1.96vw',
+    columnCount: 3,
+    columnGap: '1.96vw',
+}
+
+export const image: CSS.Properties = {
+    width: '100%',
+    height: 'auto',
+    maxHeight: '81.32vh',
+    //backgroundColor: 'blue',
+    marginBottom: '3.48vh'
 }
 
 export const projectImages: CSS.Properties = {
     maxWidth: '100%',
     objectFit: 'fill',
-    maxHeight: '100%'
+    maxHeight: '81.32vh'
 }
 
 export const image1: CSS.Properties = {
