@@ -34,15 +34,22 @@ export default function Footer (props : FooterProps) {
                     }
                     }
                 }
+                allContentfulSocial(limit: 1) {
+                    nodes {
+                      instagram
+                      twitter
+                      facebook
+                    }
+                }
             }
         `)
 
   return(
     <footer style={footerStyle}>
         <div style={socialStyle}>
-            <Img fixed={data.facebook.childImageSharp.fixed} style={facebookStyle}/>
-            <Img fixed={data.twitter.childImageSharp.fixed} style={twitterStyle}/>
-            <Img fixed={data.instagram.childImageSharp.fixed} style={instagramStyle}/>
+            {/*<Img fixed={logos.facebook.childImageSharp.fixed} style={facebookStyle}/>
+            <Img fixed={logos.twitter.childImageSharp.fixed} style={twitterStyle}/>*/}
+            <a href={data.allContentfulSocial.nodes[0].instagram}><Img fixed={data.instagram.childImageSharp.fixed} style={instagramStyle} /></a>
         </div>
         <div style={copyrightStyle}>
             Copyright 2020. All rights reserved.

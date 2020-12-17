@@ -37,6 +37,13 @@ export const miniGalleryColumn1: CSS.Properties = {
     paddingRight: '1vw',
 }
 
+export const miniGalleryMobile: CSS.Properties = {
+    float: 'left',
+    width: '100%',
+    height: '86.60vh',
+    paddingRight: '1vw',
+}
+
 export const miniGalleryColumn2: CSS.Properties = {
     float: 'left',
     width: '40%',

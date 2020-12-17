@@ -17,6 +17,24 @@ export interface ContactProps{
 
 export default function Contact (props:ContactProps){
 
+  const data = useStaticQuery(
+    graphql`{
+      allContentfulContact {
+        nodes {
+          childContentfulContactAddressTextNode {
+            address
+          }
+          childContentfulContactCareerTextNode {
+            career
+          }
+          email
+          phone
+        }
+      }
+    }`)
+
+  console.log(data.allContentfulContact.nodes[0].childContentfulContactAddressTextNode.address)
+
   return (
     <>
     <div style={contactPageStyle}>
@@ -25,12 +43,10 @@ export default function Contact (props:ContactProps){
         </div>
 
         <div style={contactAddressStyle}>
-        Calle 55 Este Obarrio<br/>
-        Edificio 1959 Piso 4<br/>
-        Panama, Panama<br/>
-        <br/>
-        +507 263 72 99<br/>
-        info@musaarquitectos.com<br/>
+        {data.allContentfulContact.nodes[0].childContentfulContactAddressTextNode.address}
+        <br/><br/>
+        {data.allContentfulContact.nodes[0].phone}<br/>
+        {data.allContentfulContact.nodes[0].email}<br/>
         </div>
 
         <div style={contactCareersStyle}>
@@ -38,9 +54,7 @@ export default function Contact (props:ContactProps){
         </div>
 
         <div style={contactCareerDescriptionStyle}>
-        Interested parties should send a non-returnable portfolio and CV by email or post; please note that Musa Architects is unable to return any application materials sent to us. Successful candidates will be contacted within a week of the application’s arrival. The standard procedure for recruitment is: Application review (portfolio, CV), Trial period (Panama office / three months / fee and transportation will be paid), and Staff.
-        <br /><br />
-        There are currently no vacancies for an internship at the Panama Office, check back for more. 
+          {data.allContentfulContact.nodes[0].childContentfulContactCareerTextNode.career}
         </div>
       </div>
     </>

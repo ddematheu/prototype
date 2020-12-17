@@ -9,12 +9,14 @@ export interface HomeProps{
     projectSelect: string;
     selectProject: any;
     data: any;
+    width: number;
 }
 
 export default function Home (props: HomeProps){
     return(
     <div style={contentStyle}>
             <MiniGallery
+            width = {props.width}
             layoutState = {props.layoutState}
             changeLayout = {props.changeLayout}
             projectSelect = {props.projectSelect}

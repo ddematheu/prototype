@@ -81,6 +81,13 @@ export default function Layout (props:LayoutProps){
   const [layoutState, setLayoutState] = useState(LayoutTypes.Home);
   const [projectSelect, setProject] = useState(null);
 
+  const [width, setWidth] = useState(500)
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth))
+    setWidth(window.innerWidth)
+  }, [])
+
   useEffect(() => {
     if(layoutState === LayoutTypes.Projects)
     {
@@ -106,12 +113,14 @@ export default function Layout (props:LayoutProps){
       layoutState = {layoutState}
       changeLayout = {setLayoutState}
       headerOnClick = {headerOnClick}
+      width = {width}
       />
       <div style={layoutContentStyle}>
         {
           (layoutState === LayoutTypes.Home || layoutState === LayoutTypes.Projects) &&
           <div>
           <Home 
+          width = {width}
           layoutState = {layoutState}
           changeLayout = {setLayoutState}
           projectSelect = {projectSelect}

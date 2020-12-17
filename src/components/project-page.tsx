@@ -12,7 +12,7 @@ export interface ProjectPageProps{
 export default function ProjectPage (props:ProjectPageProps){
 
   const project = props.data.allContentfulProject.edges.find( (edge) => edge.node.id === props.projectName);
-  console.log(project)
+  console.log(project.node.childContentfulProjectDescriptionTextNode.internal.content)
 
   return (
     <>

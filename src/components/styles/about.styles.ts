@@ -7,7 +7,7 @@ export const aboutStyle: CSS.Properties = {
     paddingTop: '20.07vh',
     paddingBottom: '5vh',
     margin: '0',
-    height: '91vh',
+    height: '94vh',
 }
 
 export const aboutTitleStyle: CSS.Properties = {
@@ -32,4 +32,5 @@ export const aboutDescriptionStyle: CSS.Properties = {
     fontWeight: 400,
     fontSize: '16px',
     lineHeight: '20px',
+    whiteSpace: 'pre-line',
 }

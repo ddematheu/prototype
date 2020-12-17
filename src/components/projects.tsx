@@ -29,7 +29,7 @@ export default function Projects (props:ProjectsPageProps){
         )
     );
     return imageGallery
-}
+  }
   
   return (
     <>
