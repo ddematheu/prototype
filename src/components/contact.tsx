@@ -9,10 +9,10 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import MiniGallery from "./miniGallery"
-import {contactPageStyle, contactTitleStyle,contactAddressStyle, contactCareersStyle, contactCareerDescriptionStyle} from './styles/contact.styles';
+import {contactPageStyle, contactPageStyleMobile, contactTitleStyle,contactAddressStyle, contactCareersStyle, contactCareerDescriptionStyle} from './styles/contact.styles';
 
 export interface ContactProps{
-
+  width: number;
 }
 
 export default function Contact (props:ContactProps){
@@ -33,11 +33,9 @@ export default function Contact (props:ContactProps){
       }
     }`)
 
-  console.log(data.allContentfulContact.nodes[0].childContentfulContactAddressTextNode.address)
-
   return (
     <>
-    <div style={contactPageStyle}>
+    <div style={props.width > 700 ? contactPageStyle: contactPageStyleMobile}>
         <div style={contactTitleStyle}>
             Contacto
         </div>

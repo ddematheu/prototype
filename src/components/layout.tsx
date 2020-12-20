@@ -81,7 +81,7 @@ export default function Layout (props:LayoutProps){
   const [layoutState, setLayoutState] = useState(LayoutTypes.Home);
   const [projectSelect, setProject] = useState(null);
 
-  const [width, setWidth] = useState(500)
+  const [width, setWidth] = useState(700)
 
   useEffect(() => {
     window.addEventListener("resize", () => setWidth(window.innerWidth))
@@ -133,22 +133,24 @@ export default function Layout (props:LayoutProps){
           changeLayout = {setLayoutState}
           projectSelect = {projectSelect}
           selectProject = {setProject}
+          width = {width}
           />
           </div>
         }  
         {
           layoutState === LayoutTypes.About &&
-          <About />
+          <About  width = {width}/>
         }
         {
           layoutState === LayoutTypes.Contact &&
-          <Contact />
+          <Contact width = {width} />
         }
         {
           layoutState === LayoutTypes.Selected &&
           <ProjectPage 
           projectName = {projectSelect}
           data = {data}
+          width = {width}
           />
         }
       </div>

@@ -22,6 +22,12 @@ export const projectsDescriptionStyle: CSS.Properties = {
     paddingBottom: '6.25vh',
 }
 
+export const projectsDescriptionMobileStyle: CSS.Properties = {
+    width: '100vw',
+    height: '23.71vh',
+    paddingBottom: '6.25vh',
+}
+
 export const galleryStyle: CSS.Properties = {
     position:'relative',
     width: '100%',
@@ -32,6 +38,18 @@ export const galleryStyle: CSS.Properties = {
     MozColumnCount: 3,
     MozColumnGap: '1.96vw',
     columnCount: 3,
+    columnGap: '1.96vw',
+}
+
+export const galleryStyleMobile: CSS.Properties = {
+    position:'relative',
+    width: '100%',
+    lineHeight: 0,
+    WebkitColumnCount: 1,
+    WebkitColumnGap: '1.96vw',
+    MozColumnCount: 2,
+    MozColumnGap: '1.96vw',
+    columnCount: 1,
     columnGap: '1.96vw',
 }
 

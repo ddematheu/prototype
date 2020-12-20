@@ -36,7 +36,7 @@ export const instagramStyle: CSS.Properties = {
 
 export const copyrightStyle: CSS.Properties = {
     float: 'right',
-    fontFamily: 'Favorit',
+    fontFamily: 'Helvetica',
     fontStyle: 'normal',
     fontWeight: 400,
     fontSize: '12px',

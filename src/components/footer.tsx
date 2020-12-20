@@ -1,8 +1,7 @@
 import React from "react"
-import { checkPropTypes } from "prop-types";
 import {copyrightStyle, facebookStyle, footerStyle, instagramStyle, socialStyle, twitterStyle} from './styles/footer.styles';
 import { graphql, useStaticQuery } from "gatsby";
-import Img, { FixedObject } from "gatsby-image"
+import Img from "gatsby-image"
 
 export interface FooterProps{
 
@@ -27,7 +26,7 @@ export default function Footer (props : FooterProps) {
                     }
                     }
                 }
-                instagram: file(relativePath: { eq: "instagram.png" }) {
+                instagram: file(relativePath: { eq: "instagram.jpg" }) {
                     childImageSharp {
                     fixed(width: 22, height: 22) {
                         ...GatsbyImageSharpFixed

@@ -21,9 +21,9 @@ export default function MiniGallery (props: MiniGalleryProps): JSX.Element{
         return props.changeLayout(LayoutTypes.Selected);
       }
 
-    const slice = props.width > 1000 ? 2 : 1
+    const slice = props.width > 700 ? 2 : 1
 
-    const styleColumn = props.width > 1000 ? miniGalleryColumn1 : miniGalleryMobile
+    const styleColumn = props.width > 700 ? miniGalleryColumn1 : miniGalleryMobile
 
     function imageGalleryGenerator () {
         const imageGallery = props.data.allContentfulProject.edges.slice(0,slice).map( (value: any, index: number ) => (

@@ -1,34 +1,25 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { projectColumn1, projectColumn2, projectColumns, projectDescription, projectTopImage, projectPageStyle, projectTitle, projectImageTwo, projectImageThree, projectDescriptionDetails} from "./styles/projectPage.styles"
+import { projectAreaMobile, projectColumn1, projectColumn2, projectColumns, projectDescription, projectTopImage, projectPageStyle, projectTitle, projectImageTwo, projectImageThree, projectDescriptionDetails, projectPageStyleMobile, projectColumnsMobile} from "./styles/projectPage.styles"
 import Img, { FixedObject } from "gatsby-image"
 
 export interface ProjectPageProps{
     projectName: string;
     data: any;
+    width: number;
 }
 
 export default function ProjectPage (props:ProjectPageProps){
 
   const project = props.data.allContentfulProject.edges.find( (edge) => edge.node.id === props.projectName);
-  console.log(project.node.childContentfulProjectDescriptionTextNode.internal.content)
 
   return (
     <>
-    <div style={projectPageStyle}>
+    <div style={props.width > 700 ? projectPageStyle : projectPageStyleMobile}>
       <Img style={projectTopImage} fixed={project.node.topImage.fixed} />
-      <div style={projectColumns}>
-        <div style={projectColumn1}>
-          <div style={projectImageTwo}>
-            <Img style={projectImageTwo} fixed={project.node.image1.fixed} />
-          </div>
-          <div style={projectImageThree}>
-            <Img style={projectImageThree} fixed={project.node.image2.fixed} />
-          </div>
-        </div>
-
-        <div style={projectColumn2}>
+      <div style={props.width > 700 ? projectColumns : projectColumnsMobile}>
+        <div style={props.width > 700 ? projectColumn1 : projectAreaMobile}>
           <div style={projectTitle}>
             {project.node.name}
           </div>
@@ -45,6 +36,14 @@ export default function ProjectPage (props:ProjectPageProps){
             <br/><br/>
             En colaboracion con:<br/>
             sketch.com.pa<br/>
+          </div>
+        </div>
+        <div style={props.width > 700 ? projectColumn2 : projectAreaMobile}>
+          <div style={projectImageTwo}>
+            <Img style={projectImageTwo} fixed={project.node.image1.fixed} />
+          </div>
+          <div style={projectImageThree}>
+            <Img style={projectImageThree} fixed={project.node.image2.fixed} />
           </div>
         </div>
       </div>

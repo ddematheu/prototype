@@ -17,8 +17,8 @@ export default function Header (props : HeaderProps) {
 
   return(
     <header style={headerStyle}>
-        <Logo logoOnClick={props.headerOnClick}/>
-        {props.width > 1000 ? <Menu menuOnClick={props.headerOnClick}/> : <MobileMenu menuOnClick={props.headerOnClick}/> }
+        <Logo logoOnClick={props.headerOnClick} width={props.width}/>
+        {props.width > 700 ? <Menu menuOnClick={props.headerOnClick}/> : <MobileMenu menuOnClick={props.headerOnClick}/> }
     </header>
   );
 }

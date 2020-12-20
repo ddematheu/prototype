@@ -7,7 +7,17 @@ export const aboutStyle: CSS.Properties = {
     paddingTop: '20.07vh',
     paddingBottom: '5vh',
     margin: '0',
-    height: '94vh',
+    height: '91vh',
+}
+
+export const aboutStyleMobile: CSS.Properties = {
+    width: '100vw',
+    paddingLeft: '3.4vw',
+    paddingRight: '3.4vw',
+    paddingTop: '20.07vh',
+    paddingBottom: '5vh',
+    margin: '0',
+    height: '160vh',
 }
 
 export const aboutTitleStyle: CSS.Properties = {

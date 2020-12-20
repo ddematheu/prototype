@@ -7,7 +7,7 @@ export const mainLogoStyle: CSS.Properties = {
     left: '3.4vw',
     top: '5.76vh',
     color: 'black',
-    fontFamily: 'Favorit',
+    fontFamily: 'Helvetica',
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontSize: '20px',
@@ -39,7 +39,7 @@ export const constructionModalStyleMobile: CSS.Properties = {
 
 export const constructionTextStyle: CSS.Properties = {
     color: '#8B8B8B',
-    fontFamily: 'Favorit',
+    fontFamily: 'Helvetica',
     fontStyle: 'normal',
     fontWeight: 'normal',
     fontSize: '16px',
@@ -47,4 +47,24 @@ export const constructionTextStyle: CSS.Properties = {
     letterSpacing: '0.05em',
     zIndex: 10,
     textAlign: 'left'
+}
+
+export const constructionEnglishTextStyle: CSS.Properties = {
+    marginTop: '4.47vh',
+    color: '#8B8B8B',
+    fontFamily: 'Helvetica',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: '16px',
+    lineHeight: '20px',
+    letterSpacing: '0.05em',
+    zIndex: 10,
+    textAlign: 'left'
+}
+
+export const constructionLineStyle: CSS.Properties = {
+    width: '350px',
+    height: '0px',
+    marginTop: '4.47vh',
+    border: '2px solid #000000',
 }

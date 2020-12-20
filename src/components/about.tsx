@@ -8,10 +8,10 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import {aboutTitleStyle, aboutDescriptionStyle, aboutStyle} from './styles/about.styles';
+import {aboutTitleStyle, aboutStyleMobile, aboutDescriptionStyle, aboutStyle} from './styles/about.styles';
 
 export interface AboutProps{
-
+  width: number;
 }
 
 export default function About (props:AboutProps){
@@ -29,11 +29,9 @@ export default function About (props:AboutProps){
       }
     }`)
 
-  console.log(data.allContentfulAbout.nodes[0].childContentfulAboutAboutTextNode.internal.content)
-
   return (
     <>
-    <div style={aboutStyle}>
+    <div style={props.width > 700 ? aboutStyle : aboutStyleMobile}>
         <div>
             <div style={aboutTitleStyle}>Nosotros</div>
             <div style={aboutDescriptionStyle}>
