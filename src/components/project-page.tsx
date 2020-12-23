@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { projectAreaMobile, projectColumn1, projectColumn2, projectColumns, projectDescription, projectTopImage, projectPageStyle, projectTitle, projectImageTwo, projectImageThree, projectDescriptionDetails, projectPageStyleMobile, projectColumnsMobile} from "./styles/projectPage.styles"
+import { projectAreaMobile, projectColumn1, projectImageThreeMobile, projectColumn2, projectColumns, projectDescription, projectTopImage, projectPageStyle, projectTitle, projectImageTwo, projectImageThree, projectDescriptionDetails, projectPageStyleMobile, projectColumnsMobile} from "./styles/projectPage.styles"
 import Img, { FixedObject } from "gatsby-image"
 
 export interface ProjectPageProps{
@@ -39,12 +39,8 @@ export default function ProjectPage (props:ProjectPageProps){
           </div>
         </div>
         <div style={props.width > 700 ? projectColumn2 : projectAreaMobile}>
-          <div style={projectImageTwo}>
             <Img style={projectImageTwo} fixed={project.node.image1.fixed} />
-          </div>
-          <div style={projectImageThree}>
-            <Img style={projectImageThree} fixed={project.node.image2.fixed} />
-          </div>
+            <Img style={props.width > 700 ? projectImageThree : projectImageThreeMobile } fixed={project.node.image2.fixed} />
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@ export const mobileMenusToggleStyle: CSS.Properties = {
 
 export const mobileMenuContentStyle: CSS.Properties = {
     position: 'relative',
-    top: '22.64vh'
+    top: '30.28vh'
 }
 
 export const line1StyleClose: CSS.Properties = {

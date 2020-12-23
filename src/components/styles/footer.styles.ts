@@ -1,15 +1,14 @@
 import CSS from 'csstype';
+import { use100vh } from 'react-div-100vh'
 
 export const footerStyle: CSS.Properties = {
     width: '100%',
     height: '9vh',
     minHeight: '48px',
-    paddingLeft: '3.17vw',
-    paddingRight: '3.33vw',
+    paddingLeft: '3.4vw',
+    paddingRight: '3.4vw',
     paddingTop: '2vh',
     paddingBottom: '5.59vh',
-    bottom: 0,
-    left: 0,
 }
 
 export const socialStyle: CSS.Properties = {

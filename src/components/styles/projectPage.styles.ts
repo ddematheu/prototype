@@ -24,14 +24,14 @@ export const projectTopImage: CSS.Properties = {
 
 export const projectColumns: CSS.Properties = {
     paddingTop: '3.4vh',
-    height: '100%',
+    height: '145vh',
     paddingBottom: '10vh',
 }
 
 export const projectColumnsMobile: CSS.Properties = {
     paddingTop: '3.4vh',
     height: '100%',
-    paddingBottom: '10vh',
+    paddingBottom: '4vh',
 }
 
 export const projectColumn1: CSS.Properties = {
@@ -81,7 +81,15 @@ export const projectImageThree: CSS.Properties = {
     width: '100%',
     height: '53.06vh',
     objectFit: 'fill',
-    paddingTop: '6.95vh',
+    paddingTop: '3.85vh',
+    paddingBottom: '64px',
+}
+
+export const projectImageThreeMobile: CSS.Properties = {
+    width: '100%',
+    height: '53.06vh',
+    objectFit: 'fill',
+    paddingTop: '2.5vh',
     paddingBottom: '64px',
 }
 

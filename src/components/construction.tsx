@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react"
-import { constructionModalStyle, constructionModalStyleMobile, constructionStyle, mainLogoStyle, constructionTextStyle, constructionLineStyle,constructionEnglishTextStyle } from "./styles/construction.styles";
+import {constructionMobileTextStyle, constructionStyle, mainLogoStyle, constructionTextStyle, constructionLineStyle,constructionEnglishTextStyle } from "./styles/construction.styles";
 import Footer from "./footer";
+import './styles/layout.css'
 import "../css/typography.css";
+import Div100vh from 'react-div-100vh';
 
 export interface ConstructionProps{
 
@@ -18,24 +20,24 @@ export default function Construction (props:ConstructionProps){
 
     return (
         <>
+        <Div100vh>
             <div style={constructionStyle}>
-                <div style={width < 700 ? constructionModalStyleMobile: constructionModalStyle }>
-                    <div style={mainLogoStyle}>
-                        Musa
-                    </div>
-                    <div style={constructionTextStyle}>
-                        <br/>Página en construcción.<br/><br/>
-                        Si desea contactarnos, por favor enviar un correo a <br/><br/>info@musaarquitectos.com 
-                    </div>
-                    <div style={constructionLineStyle}>
-                    </div>
-                    <div style={constructionEnglishTextStyle}>
-                        Under construction.<br/><br/>
-                        If you would like to contact us, please send an email to <br/><br/>info@musaarquitectos.com 
-                    </div>
+                <div style={mainLogoStyle}>
+                    Musa
+                </div>
+                <div style={width > 700 ? constructionTextStyle : constructionMobileTextStyle}>
+                    <br/>Página en construcción.<br/><br/>
+                    Si desea contactarnos, por favor enviar un correo a <br/><br/>info@musaarquitectos.com 
+                </div>
+                <div style={constructionLineStyle}>
+                </div>
+                <div style={constructionEnglishTextStyle}>
+                    Under construction.<br/><br/>
+                    If you would like to contact us, please send an email to <br/><br/>info@musaarquitectos.com 
                 </div>
             </div>
             <Footer/>
+        </Div100vh>
         </>
     )
 }

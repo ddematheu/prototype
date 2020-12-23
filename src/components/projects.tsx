@@ -2,8 +2,9 @@ import React, { MutableRefObject, useRef, useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Img, { FixedObject } from "gatsby-image"
-import { projectsStyle, projectsDescriptionStyle, galleryStyleMobile, projectsDescriptionMobileStyle, galleryStyle, image1, image2, image3, image4, image5, image6, image7, projectImages, image } from "./styles/projects.styles"
+import { projectsStyle, projectsDescriptionStyle, galleryStyleMobile, nameOverlayStyle, projectNameMobileStyle, imageMobile, projectsDescriptionMobileStyle, galleryStyle, projectImages, image } from "./styles/projects.styles"
 import { LayoutTypes } from "./layout"
+import './styles/projects.css'
 
 export interface ProjectsPageProps{
     layoutState: string;
@@ -24,8 +25,14 @@ export default function Projects (props:ProjectsPageProps){
 
   function imageGalleryGenerator () {
     const imageGallery = props.data.allContentfulProject.edges.map( (value: any, index: number ) => (
-            <div key={value.node.id} style={image} onClick={(e) => imageOnClick(value.node.id)}>
+            <div className = 'imageContainer' key={value.node.id} style={props.width >  700 ? image : imageMobile} onClick={(e) => imageOnClick(value.node.id)}>
                 <Img style={projectImages} fixed={value.node.thumbnail.fixed} />
+                {props.width < 700 ? <div style = {projectNameMobileStyle}>
+                  {value.node.name}
+                  </div> : <div className = 'overlay' style = {nameOverlayStyle}>
+                    {value.node.name}
+                    </div>
+                }
             </div>
         )
     );
