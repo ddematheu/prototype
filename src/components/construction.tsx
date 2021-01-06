@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import {constructionMobileTextStyle, constructionStyle, mainLogoStyle, constructionTextStyle, constructionLineStyle,constructionEnglishTextStyle } from "./styles/construction.styles";
+import {constructionMobileTextStyle, constructionStyle, mainLogoStyle, constructionTextStyle, constructionLineStyle,constructionEnglishTextStyle, constructionMobileLineStyle, constructionMobileStyle } from "./styles/construction.styles";
 import Footer from "./footer";
 import './styles/layout.css'
 import "../css/typography.css";
@@ -21,7 +21,7 @@ export default function Construction (props:ConstructionProps){
     return (
         <>
         <Div100vh>
-            <div style={constructionStyle}>
+            <div style={width > 700 ? constructionStyle : constructionMobileStyle}>
                 <div style={mainLogoStyle}>
                     Musa
                 </div>
@@ -29,7 +29,7 @@ export default function Construction (props:ConstructionProps){
                     <br/>Página en construcción.<br/><br/>
                     Si desea contactarnos, por favor enviar un correo a <br/><br/>info@musaarquitectos.com 
                 </div>
-                <div style={constructionLineStyle}>
+                <div style={width > 700 ? constructionLineStyle : constructionMobileLineStyle}>
                 </div>
                 <div style={constructionEnglishTextStyle}>
                     Under construction.<br/><br/>

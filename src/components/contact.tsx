@@ -13,6 +13,7 @@ import {contactPageStyle, contactPageStyleMobile, contactTitleStyle,contactAddre
 
 export interface ContactProps{
   width: number;
+  language: string
 }
 
 export default function Contact (props:ContactProps){
@@ -29,30 +30,33 @@ export default function Contact (props:ContactProps){
           }
           email
           phone
+          node_locale
         }
       }
     }`)
-
+  
+  var localizedData = data.allContentfulContact.nodes.find( (node) => node.node_locale === props.language);
+  
   return (
     <>
     <div style={props.width > 700 ? contactPageStyle: contactPageStyleMobile}>
         <div style={contactTitleStyle}>
-            Contacto
+            {props.language == "es" ? "Contacto" : "Contact" }
         </div>
 
         <div style={contactAddressStyle}>
-        {data.allContentfulContact.nodes[0].childContentfulContactAddressTextNode.address}
+        {localizedData.childContentfulContactAddressTextNode.address}
         <br/><br/>
-        {data.allContentfulContact.nodes[0].phone}<br/>
-        {data.allContentfulContact.nodes[0].email}<br/>
+        {localizedData.phone}<br/>
+        {localizedData.email}<br/>
         </div>
 
         <div style={contactCareersStyle}>
-            Careers
+        {props.language == "es" ? "Carreras" : "Careers" }
         </div>
 
         <div style={contactCareerDescriptionStyle}>
-          {data.allContentfulContact.nodes[0].childContentfulContactCareerTextNode.career}
+          {localizedData.childContentfulContactCareerTextNode.career}
         </div>
       </div>
     </>

@@ -12,6 +12,7 @@ import {aboutTitleStyle, aboutStyleMobile, aboutDescriptionStyle, aboutStyle} fr
 
 export interface AboutProps{
   width: number;
+  language: string;
 }
 
 export default function About (props:AboutProps){
@@ -20,6 +21,7 @@ export default function About (props:AboutProps){
     graphql`{
       allContentfulAbout {
         nodes {
+          node_locale
           childContentfulAboutAboutTextNode {
             internal {
               content
@@ -29,13 +31,15 @@ export default function About (props:AboutProps){
       }
     }`)
 
+  var localizedData = data.allContentfulAbout.nodes.find( (node) => node.node_locale === props.language);
+
   return (
     <>
     <div style={props.width > 700 ? aboutStyle : aboutStyleMobile}>
         <div>
-            <div style={aboutTitleStyle}>Nosotros</div>
+            <div style={aboutTitleStyle}> {props.language == "es" ? "Nosotros" : "About" } </div>
             <div style={aboutDescriptionStyle}>
-              {data.allContentfulAbout.nodes[0].childContentfulAboutAboutTextNode.internal.content}
+              {localizedData.childContentfulAboutAboutTextNode.internal.content}
             </div>
         </div>
       </div>

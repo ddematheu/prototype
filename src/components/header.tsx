@@ -11,6 +11,8 @@ export interface HeaderProps{
   changeLayout: any;
   headerOnClick: any;
   width: number;
+  language: string;
+  setLanguage: any;
 }
 
 export default function Header (props : HeaderProps) {
@@ -18,7 +20,10 @@ export default function Header (props : HeaderProps) {
   return(
     <header style={headerStyle}>
         <Logo logoOnClick={props.headerOnClick} width={props.width}/>
-        {props.width > 700 ? <Menu menuOnClick={props.headerOnClick}/> : <MobileMenu menuOnClick={props.headerOnClick}/> }
+        {props.width > 700 ? <Menu menuOnClick={props.headerOnClick} language = {props.language} setLanguage = {props.setLanguage} /> : <MobileMenu 
+        language = {props.language}
+        setLanguage = {props.setLanguage}
+        menuOnClick={props.headerOnClick}/> }
     </header>
   );
 }

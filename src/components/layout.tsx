@@ -33,6 +33,8 @@ export default function Layout (props:LayoutProps){
     allContentfulProject (sort: {order: ASC, fields: order}) {
       edges {
         node {
+          contentful_id
+          node_locale
           id
           name
           ano
@@ -82,6 +84,7 @@ export default function Layout (props:LayoutProps){
   const [projectSelect, setProject] = useState(null);
 
   const [width, setWidth] = useState(700)
+  const [language, setLanguage] = useState("es")
 
   useEffect(() => {
     window.addEventListener("resize", () => setWidth(window.innerWidth))
@@ -114,6 +117,8 @@ export default function Layout (props:LayoutProps){
       changeLayout = {setLayoutState}
       headerOnClick = {headerOnClick}
       width = {width}
+      language = {language}
+      setLanguage = {setLanguage}
       />
       <div style={layoutContentStyle}>
         {
@@ -126,6 +131,7 @@ export default function Layout (props:LayoutProps){
           projectSelect = {projectSelect}
           selectProject = {setProject}
           data = {data}
+          language = {language}
           />
           <Projects 
           data = {data}
@@ -134,16 +140,21 @@ export default function Layout (props:LayoutProps){
           projectSelect = {projectSelect}
           selectProject = {setProject}
           width = {width}
+          language = {language}
           />
           </div>
         }  
         {
           layoutState === LayoutTypes.About &&
-          <About  width = {width}/>
+          <About  
+          width = {width}
+          language = {language}/>
         }
         {
           layoutState === LayoutTypes.Contact &&
-          <Contact width = {width} />
+          <Contact 
+          width = {width}
+          language = {language} />
         }
         {
           layoutState === LayoutTypes.Selected &&
@@ -151,10 +162,11 @@ export default function Layout (props:LayoutProps){
           projectName = {projectSelect}
           data = {data}
           width = {width}
+          language = {language}
           />
         }
       </div>
-      <Footer />
+      {width > 700 && <Footer />}
     </div>
     </>
   )

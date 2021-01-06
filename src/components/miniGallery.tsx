@@ -10,7 +10,8 @@ export interface MiniGalleryProps{
     projectSelect: string;
     selectProject: any;
     data: any;
-    width: number
+    width: number;
+    language: string;
 }
 
 export default function MiniGallery (props: MiniGalleryProps): JSX.Element{
@@ -25,9 +26,12 @@ export default function MiniGallery (props: MiniGalleryProps): JSX.Element{
 
     const styleColumn = props.width > 700 ? miniGalleryColumn1 : miniGalleryMobile
 
+    var projectsToChooseFrom = props.data.allContentfulProject.edges.filter((edges) => edges.node.node_locale === props.language)
+    console.log(projectsToChooseFrom)
+
     function imageGalleryGenerator () {
-        const imageGallery = props.data.allContentfulProject.edges.slice(0,slice).map( (value: any, index: number ) => (
-                <div key={value.node.id} style={index == 0 ? styleColumn: miniGalleryColumn2} onClick={(e) => imageOnClick(value.node.id)}>
+        const imageGallery = projectsToChooseFrom.slice(0,slice).map( (value: any, index: number ) => (
+                <div key={value.node.id} style={index == 0 ? styleColumn: miniGalleryColumn2} onClick={(e) => imageOnClick(value.node.contentful_id)}>
                     <Img fixed={value.node.thumbnail.fixed} style={miniGalleryImage}/>
                     <div style={miniGallerySubText}>
                         {value.node.name}
@@ -40,9 +44,6 @@ export default function MiniGallery (props: MiniGalleryProps): JSX.Element{
 
     return (
     <div style={miniGalleryTotal}>
-       {/* <div style={miniGalleryTitle}>
-            Proyectos Destacados
-        </div> */}
         {imageGalleryGenerator()}
     </div>
     )

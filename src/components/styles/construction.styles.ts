@@ -19,6 +19,17 @@ export const constructionStyle: CSS.Properties = {
     minHeight: '91%',
     width: '350px',
     paddingLeft: '3.4vh',
+    paddingRight: '3.4vh',
+    paddingTop: '2.92vh',
+}
+
+export const constructionMobileStyle: CSS.Properties = {
+    padding: '0 0 24px',
+    margin: '0',
+    minHeight: '91%',
+    width: '100%',
+    paddingLeft: '3.4vh',
+    paddingRight: '3.4vh',
     paddingTop: '2.92vh',
 }
 
@@ -64,6 +75,13 @@ export const constructionEnglishTextStyle: CSS.Properties = {
 
 export const constructionLineStyle: CSS.Properties = {
     width: '350px',
+    height: '0px',
+    marginTop: '4.47vh',
+    border: '2px solid #000000',
+}
+
+export const constructionMobileLineStyle: CSS.Properties = {
+    width: '100%',
     height: '0px',
     marginTop: '4.47vh',
     border: '2px solid #000000',

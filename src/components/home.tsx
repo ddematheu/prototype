@@ -10,6 +10,7 @@ export interface HomeProps{
     selectProject: any;
     data: any;
     width: number;
+    language:string;
 }
 
 export default function Home (props: HomeProps){
@@ -22,6 +23,7 @@ export default function Home (props: HomeProps){
             projectSelect = {props.projectSelect}
             selectProject = {props.selectProject}
             data = {props.data}
+            language = {props.language}
             />
     </div>
     );

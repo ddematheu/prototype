@@ -19,6 +19,7 @@ export const projectsDescriptionStyle: CSS.Properties = {
     width: '27.35vw',
     minWidth: '600px',
     height: '14.7vh',
+    minHeight: '145px',
     paddingBottom: '6.25vh',
 }
 
@@ -76,8 +77,15 @@ export const projectImages: CSS.Properties = {
     maxHeight: '81.32vh'
 }
 
+export const projectImagesMobile: CSS.Properties = {
+    maxWidth: '100%',
+    objectFit: 'fill',
+    maxHeight: '75.32vh'
+}
+
 export const projectNameMobileStyle: CSS.Properties = {
     paddingTop: '10px',
+    paddingBottom: '10px',
     color: '#8B8B8B',
     fontFamily: 'Favorit',
     fontStyle: 'normal',

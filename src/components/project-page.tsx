@@ -8,11 +8,16 @@ export interface ProjectPageProps{
     projectName: string;
     data: any;
     width: number;
+    language: string;
 }
 
 export default function ProjectPage (props:ProjectPageProps){
 
-  const project = props.data.allContentfulProject.edges.find( (edge) => edge.node.id === props.projectName);
+  function checkProject(element, index, array){
+    return element.node.node_locale === props.language && element.node.contentful_id === props.projectName
+  }
+
+  const project = props.data.allContentfulProject.edges.find(checkProject);
 
   return (
     <>
@@ -25,16 +30,16 @@ export default function ProjectPage (props:ProjectPageProps){
           </div>
           <div style={projectDescription}> {project.node.childContentfulProjectDescriptionTextNode.internal.content} </div>
           <div style={projectDescriptionDetails}>
-            <u>Ubicacion</u><br/>
+            <u>{props.language == 'es' ? "Ubicacion" : "Location"}</u><br/>
             {project.node.location} <br/><br/>
-            <u>Ano</u><br/>
+            <u>{props.language == 'es' ? "Año" : "Year"}</u><br/>
             {project.node.ano} <br/><br/>
-            <u>Uso</u><br/>
+            <u>{props.language == 'es' ? "Uso" : "Use"}</u><br/>
             {project.node.uso} <br/><br/>
-            <u>Equipo</u><br/>
+            <u>{props.language == 'es' ? "Equipo" : "Team"}</u><br/>
             {project.node.childContentfulProjectEquipoRichTextNode.content[0].content[0].value}
             <br/><br/>
-            En colaboracion con:<br/>
+            {props.language == 'es' ? "En colaboracion con:" : "In collaboration with:"}<br/>
             sketch.com.pa<br/>
           </div>
         </div>

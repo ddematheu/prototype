@@ -106,3 +106,19 @@ export const contactStyleMobile: CSS.Properties = {
     lineHeight: '34px',
     zIndex: 11,
 }
+
+
+export const languageStyleMobile: CSS.Properties = {
+    position: 'relative',
+    padding: `0 14px 0 14px`,
+    color: '#8B8B8B',
+    width: '250px',
+    paddingTop: '28.89vh',
+    height: '35.14vh',
+    fontFamily: 'Favorit',
+    fontStyle: 'normal',
+    fontWeight: 400,
+    fontSize: '28px',
+    lineHeight: '34px',
+    zIndex: 11,
+}

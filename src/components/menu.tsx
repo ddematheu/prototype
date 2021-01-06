@@ -6,20 +6,25 @@ import { LayoutTypes } from "./layout";
 
 export interface MenuProps{
     menuOnClick(option): any;
+    language: string;
+    setLanguage: any;
 }
 
 export default function Menu (props: MenuProps): JSX.Element{
 
     return (
     <div style={menuStyle}>
+        <div style={contactStyle} >
+            <span onClick = {(e) => props.setLanguage('en-US')}>Eng</span>/<span onClick = {(e) => props.setLanguage('es')}>Esp</span>
+        </div>
         <div style={contactStyle} onClick={(e) => props.menuOnClick(LayoutTypes.Contact)}>
-            Contacto
+            {props.language == "es" ? "Contacto" : "Contact" }
         </div>
         <div style={aboutStyle} onClick={(e) => props.menuOnClick(LayoutTypes.About)}> 
-            Nosotros
+            {props.language == "es" ? "Nosotros" : "About" }
         </div>
         <div style={projectStyle} onClick={(e) => props.menuOnClick(LayoutTypes.Projects)}>
-            Proyectos
+            {props.language == "es" ? "Proyectos" : "Projects" }
         </div>
     </div>
     )
