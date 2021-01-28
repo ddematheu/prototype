@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import {miniGalleryTitle, miniGalleryTotal,miniGalleryImage, miniGalleryColumn1, miniGalleryColumn2, miniGallerySubText, miniGalleryMobile} from './styles/miniGallery.styles';
+import {miniGalleryMobileTotal, miniGalleryTitle, miniGalleryTotal,miniGalleryImage, miniGalleryColumn1, miniGalleryColumn2, miniGallerySubText, miniGalleryMobile, miniGalleryImageMobile, miniGallerySubTextMobile} from './styles/miniGallery.styles';
 import { useStaticQuery, graphql } from "gatsby"
 import Img, { FixedObject } from "gatsby-image"
 import { LayoutTypes } from "./layout";
@@ -32,9 +32,10 @@ export default function MiniGallery (props: MiniGalleryProps): JSX.Element{
     function imageGalleryGenerator () {
         const imageGallery = projectsToChooseFrom.slice(0,slice).map( (value: any, index: number ) => (
                 <div key={value.node.id} style={index == 0 ? styleColumn: miniGalleryColumn2} onClick={(e) => imageOnClick(value.node.contentful_id)}>
-                    <Img fixed={value.node.thumbnail.fixed} style={miniGalleryImage}/>
-                    <div style={miniGallerySubText}>
+                    <Img fixed={value.node.thumbnail.fixed} style={props.width > 700 ? miniGalleryImage : miniGalleryImageMobile}/>
+                    <div style={props.width > 700 ? miniGallerySubText : miniGallerySubTextMobile}>
                         {value.node.name}
+                        <br/><span onClick={(e) => imageOnClick(value.node.contentful_id)}><u>Leer Mas</u>&nbsp;&nbsp;&nbsp;&nbsp;&#8594;</span>
                     </div>
                 </div>
             )
@@ -43,7 +44,10 @@ export default function MiniGallery (props: MiniGalleryProps): JSX.Element{
     }
 
     return (
-    <div style={miniGalleryTotal}>
+    <div style={props.width > 700 ? miniGalleryTotal : miniGalleryMobileTotal}>
+        {props.width < 700 && <div style={miniGalleryTitle}>
+            Proyectos Destacados
+        </div>}
         {imageGalleryGenerator()}
     </div>
     )

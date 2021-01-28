@@ -3,7 +3,7 @@ import Construction from "../components/construction"
 import Layout from "../components/layout"
 
 const IndexPage = () => (
-  <Layout/>
+  <Construction/>
 )
 
 export default IndexPage

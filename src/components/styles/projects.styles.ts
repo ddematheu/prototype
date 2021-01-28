@@ -7,6 +7,16 @@ export const projectsStyle: CSS.Properties = {
     paddingTop: '15.07vh',
     paddingLeft: '3.4vw',
     paddingRight: '3.4vw',
+    zIndex: 1,
+}
+
+export const projectsDescriptionStyle: CSS.Properties = {
+    position:'relative',
+    width: '27.35vw',
+    minWidth: '600px',
+    height: '14.7vh',
+    minHeight: '145px',
+    paddingBottom: '6.25vh',
     color: '#8B8B8B',
     fontFamily: 'Favorit',
     fontStyle: 'normal',
@@ -15,18 +25,17 @@ export const projectsStyle: CSS.Properties = {
     lineHeight: '20px',
 }
 
-export const projectsDescriptionStyle: CSS.Properties = {
-    width: '27.35vw',
-    minWidth: '600px',
-    height: '14.7vh',
-    minHeight: '145px',
-    paddingBottom: '6.25vh',
-}
-
 export const projectsDescriptionMobileStyle: CSS.Properties = {
+    position:'relative',
     width: '100%',
-    height: '23.71vh',
-    paddingBottom: '6.25vh',
+    height: '24.71vh',
+    paddingBottom: '4.25vh',
+    color: '#8B8B8B',
+    fontFamily: 'Favorit',
+    fontStyle: 'normal',
+    fontWeight: 400,
+    fontSize: '20px',
+    lineHeight: '24px',
 }
 
 export const galleryStyle: CSS.Properties = {
@@ -58,7 +67,6 @@ export const imageMobile: CSS.Properties = {
     width: '100%',
     height: 'auto',
     maxHeight: '81.32vh',
-    //backgroundColor: 'blue',
     marginBottom: '1.67vh'
 }
 
@@ -66,19 +74,18 @@ export const image: CSS.Properties = {
     width: '100%',
     height: 'auto',
     maxHeight: '81.32vh',
-    //backgroundColor: 'blue',
     marginBottom: '3.48vh',
     position: 'relative'
 }
 
 export const projectImages: CSS.Properties = {
-    maxWidth: '100%',
+    width: '100%',
     objectFit: 'fill',
     maxHeight: '81.32vh'
 }
 
 export const projectImagesMobile: CSS.Properties = {
-    maxWidth: '100%',
+    width: '100%',
     objectFit: 'fill',
     maxHeight: '75.32vh'
 }

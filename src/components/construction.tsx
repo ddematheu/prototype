@@ -11,7 +11,7 @@ export interface ConstructionProps{
 
 export default function Construction (props:ConstructionProps){
 
-    const [width, setWidth] = useState(700)
+    const [width, setWidth] = useState(701)
 
     useEffect(() => {
         window.addEventListener("resize", () => setWidth(window.innerWidth))
@@ -36,7 +36,7 @@ export default function Construction (props:ConstructionProps){
                     If you would like to contact us, please send an email to <br/><br/>info@musaarquitectos.com 
                 </div>
             </div>
-            <Footer/>
+            <Footer width = {width}/>
         </Div100vh>
         </>
     )

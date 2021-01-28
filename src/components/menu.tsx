@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import {projectStyle, aboutStyle, contactStyle, menuStyle} from './styles/menu.styles';
+import {projectStyle, aboutStyle, contactStyle, menuStyle, languageStyle} from './styles/menu.styles';
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { LayoutTypes } from "./layout";
@@ -14,7 +14,7 @@ export default function Menu (props: MenuProps): JSX.Element{
 
     return (
     <div style={menuStyle}>
-        <div style={contactStyle} >
+        <div style={languageStyle} >
             <span onClick = {(e) => props.setLanguage('en-US')}>Eng</span>/<span onClick = {(e) => props.setLanguage('es')}>Esp</span>
         </div>
         <div style={contactStyle} onClick={(e) => props.menuOnClick(LayoutTypes.Contact)}>

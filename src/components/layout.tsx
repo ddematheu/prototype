@@ -13,6 +13,8 @@ import ProjectPage from "./project-page";
 import Projects from "./projects";
 import Footer from "./footer";
 import { layoutStyle,layoutContentStyle } from "./styles/layout.styles";
+import {TransitionGroup, Transition, CSSTransition } from "react-transition-group"
+import {useTransition, animated} from "react-spring"
 
 export interface LayoutProps{
 
@@ -21,6 +23,7 @@ export interface LayoutProps{
 export enum LayoutTypes {
   Home = "Home",
   Projects = "Projects",
+  ProjectsMobile = "ProjectsMobile",
   About = "About",
   Contact = "Contact",
   Selected = "Selected"
@@ -83,7 +86,7 @@ export default function Layout (props:LayoutProps){
   const [layoutState, setLayoutState] = useState(LayoutTypes.Home);
   const [projectSelect, setProject] = useState(null);
 
-  const [width, setWidth] = useState(700)
+  const [width, setWidth] = useState(701)
   const [language, setLanguage] = useState("es")
 
   useEffect(() => {
@@ -109,6 +112,14 @@ export default function Layout (props:LayoutProps){
     return 1;
   }
 
+  const duration = 1000;
+
+  const inHome = layoutState === LayoutTypes.Home || layoutState === LayoutTypes.Projects
+  const inAbout = layoutState === LayoutTypes.About
+  const inContact = layoutState === LayoutTypes.Contact
+  const inProjectPage = layoutState === LayoutTypes.Selected
+  const inProjectMobile = layoutState === LayoutTypes.ProjectsMobile && width < 700
+
   return (
     <>
     <div style={layoutStyle}>
@@ -120,53 +131,85 @@ export default function Layout (props:LayoutProps){
       language = {language}
       setLanguage = {setLanguage}
       />
-      <div style={layoutContentStyle}>
-        {
-          (layoutState === LayoutTypes.Home || layoutState === LayoutTypes.Projects) &&
-          <div>
-          <Home 
-          width = {width}
-          layoutState = {layoutState}
-          changeLayout = {setLayoutState}
-          projectSelect = {projectSelect}
-          selectProject = {setProject}
-          data = {data}
-          language = {language}
-          />
-          <Projects 
-          data = {data}
-          layoutState = {layoutState}
-          changeLayout = {setLayoutState}
-          projectSelect = {projectSelect}
-          selectProject = {setProject}
-          width = {width}
-          language = {language}
-          />
-          </div>
-        }  
-        {
-          layoutState === LayoutTypes.About &&
-          <About  
-          width = {width}
-          language = {language}/>
-        }
-        {
-          layoutState === LayoutTypes.Contact &&
-          <Contact 
-          width = {width}
-          language = {language} />
-        }
-        {
-          layoutState === LayoutTypes.Selected &&
-          <ProjectPage 
-          projectName = {projectSelect}
-          data = {data}
-          width = {width}
-          language = {language}
-          />
-        }
-      </div>
-      {width > 700 && <Footer />}
+      <TransitionGroup>
+        <div style={layoutContentStyle}>
+          {
+            (inHome) &&
+            <CSSTransition in={inHome} timeout={duration} classNames="layout" >         
+                <div >
+                  <Home 
+                  width = {width}
+                  layoutState = {layoutState}
+                  changeLayout = {setLayoutState}
+                  projectSelect = {projectSelect}
+                  selectProject = {setProject}
+                  data = {data}
+                  language = {language}
+                  />
+                  {width > 700 && <Projects 
+                  data = {data}
+                  layoutState = {layoutState}
+                  changeLayout = {setLayoutState}
+                  projectSelect = {projectSelect}
+                  selectProject = {setProject}
+                  width = {width}
+                  language = {language}
+                  />}
+                </div>
+            </CSSTransition>
+          }  
+          {
+            inProjectMobile &&
+            <CSSTransition in={inProjectMobile} timeout={duration} classNames="layout">          
+                <div>
+                  <Projects  
+                  data = {data}
+                  layoutState = {layoutState}
+                  changeLayout = {setLayoutState}
+                  projectSelect = {projectSelect}
+                  selectProject = {setProject}
+                  width = {width}
+                  language = {language}
+                  />
+                </div>
+            </CSSTransition>
+          }
+          {
+            inAbout &&
+            <CSSTransition in={inAbout} timeout={duration} classNames="layout">           
+                <div >
+                  <About  
+                  width = {width}
+                  language = {language}/>
+                </div>
+            </CSSTransition>
+          }
+          {
+            inContact &&
+            <CSSTransition in={inContact} timeout={duration} classNames="layout">            
+                <div >
+                  <Contact 
+                  width = {width}
+                  language = {language} />
+                </div>
+            </CSSTransition>
+          }
+          {
+            inProjectPage &&
+            <CSSTransition in={inProjectPage} timeout={duration} classNames="layout">     
+                <div>
+                  <ProjectPage 
+                  projectName = {projectSelect}
+                  data = {data}
+                  width = {width}
+                  language = {language}
+                  />
+                </div>
+            </CSSTransition>
+          }
+        </div>
+      </TransitionGroup>
+      {width > 700 && <Footer width = {width}/>}
     </div>
     </>
   )

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { projectAreaMobile, projectColumn1, projectImageThreeMobile, projectColumn2, projectColumns, projectDescription, projectTopImage, projectPageStyle, projectTitle, projectImageTwo, projectImageThree, projectDescriptionDetails, projectPageStyleMobile, projectColumnsMobile} from "./styles/projectPage.styles"
+import { projectAreaMobile, projectColumn1, projectImageThreeMobile, projectColumn2, projectColumns, projectDescription, projectTopImage, projectPageStyle, projectTitle, projectImageTwo, projectImageThree, projectDescriptionDetails, projectPageStyleMobile, projectColumnsMobile, projectTitleMobile, projectDescriptionMobile, projectDescriptionDetailsMobile} from "./styles/projectPage.styles"
 import Img, { FixedObject } from "gatsby-image"
 
 export interface ProjectPageProps{
@@ -25,11 +25,11 @@ export default function ProjectPage (props:ProjectPageProps){
       <Img style={projectTopImage} fixed={project.node.topImage.fixed} />
       <div style={props.width > 700 ? projectColumns : projectColumnsMobile}>
         <div style={props.width > 700 ? projectColumn1 : projectAreaMobile}>
-          <div style={projectTitle}>
+          <div style={props.width > 700 ? projectTitle : projectTitleMobile}>
             {project.node.name}
           </div>
-          <div style={projectDescription}> {project.node.childContentfulProjectDescriptionTextNode.internal.content} </div>
-          <div style={projectDescriptionDetails}>
+          <div style={props.width > 700 ? projectDescription : projectDescriptionMobile}> {project.node.childContentfulProjectDescriptionTextNode.internal.content} </div>
+          <div style={props.width > 700 ? projectDescriptionDetails : projectDescriptionDetailsMobile}>
             <u>{props.language == 'es' ? "Ubicacion" : "Location"}</u><br/>
             {project.node.location} <br/><br/>
             <u>{props.language == 'es' ? "Año" : "Year"}</u><br/>

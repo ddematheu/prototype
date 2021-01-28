@@ -11,6 +11,17 @@ export const footerStyle: CSS.Properties = {
     paddingBottom: '5.59vh',
 }
 
+export const footerStyleMobile: CSS.Properties = {
+    width: '100%',
+    height: '9vh',
+    minHeight: '48px',
+    paddingLeft: '7vw',
+    paddingRight: '7vw',
+    paddingTop: '2vh',
+    paddingBottom: '4.59vh',
+}
+
+
 export const socialStyle: CSS.Properties = {
     float: 'left',
 }

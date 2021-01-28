@@ -7,33 +7,33 @@ export const mainLogoStyle: CSS.Properties = {
     fontFamily: 'Helvetica',
     fontStyle: 'normal',
     fontWeight: 'normal',
-    fontSize: '20px',
-    lineHeight: '34px',
+    fontSize: '28px',
+    lineHeight: '32px',
     letterSpacing: '0.05em',
     zIndex: 10,
 }
 
 export const constructionStyle: CSS.Properties = {
-    padding: '0 0 24px',
     margin: '0',
     minHeight: '91%',
-    width: '350px',
-    paddingLeft: '3.4vh',
-    paddingRight: '3.4vh',
+    width: '100%',
+    paddingLeft: '3.4vw',
+    paddingRight: '3.4vw',
     paddingTop: '2.92vh',
 }
 
 export const constructionMobileStyle: CSS.Properties = {
-    padding: '0 0 24px',
     margin: '0',
     minHeight: '91%',
     width: '100%',
-    paddingLeft: '3.4vh',
-    paddingRight: '3.4vh',
+    paddingLeft: '7vw',
+    paddingRight: '7vw',
     paddingTop: '2.92vh',
 }
 
 export const constructionMobileTextStyle: CSS.Properties = {
+    width: '74.13vw',
+    maxWidth: '311px',
     color: '#8B8B8B',
     fontFamily: 'Helvetica',
     fontStyle: 'normal',
@@ -48,6 +48,8 @@ export const constructionMobileTextStyle: CSS.Properties = {
 
 
 export const constructionTextStyle: CSS.Properties = {
+    width: '74.13vw',
+    maxWidth: '311px',
     color: '#8B8B8B',
     fontFamily: 'Helvetica',
     fontStyle: 'normal',
@@ -61,6 +63,8 @@ export const constructionTextStyle: CSS.Properties = {
 }
 
 export const constructionEnglishTextStyle: CSS.Properties = {
+    width: '74.13vw',
+    maxWidth: '311px',
     marginTop: '4.47vh',
     color: '#8B8B8B',
     fontFamily: 'Helvetica',
@@ -77,12 +81,12 @@ export const constructionLineStyle: CSS.Properties = {
     width: '350px',
     height: '0px',
     marginTop: '4.47vh',
-    border: '2px solid #000000',
+    border: '0.75px solid #000000',
 }
 
 export const constructionMobileLineStyle: CSS.Properties = {
     width: '100%',
     height: '0px',
     marginTop: '4.47vh',
-    border: '2px solid #000000',
+    border: '0.75px solid #000000',
 }

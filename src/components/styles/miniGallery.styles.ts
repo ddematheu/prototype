@@ -1,6 +1,7 @@
 import CSS from 'csstype';
 
 export const miniGalleryTotal: CSS.Properties = {
+    position:'relative',
     width: '100%',
     paddingLeft: '3.36vw',
     paddingTop: '13vh',
@@ -9,17 +10,28 @@ export const miniGalleryTotal: CSS.Properties = {
     height: '92.85vh',
 }
 
+export const miniGalleryMobileTotal: CSS.Properties = {
+    position:'relative',
+    width: '100%',
+    paddingTop: '50.53vh',
+    margin: '0',
+    height: '100vh',
+}
+
 export const miniGalleryTitle: CSS.Properties = {
     alignContent: "left",
-    width: '40vw',
-    paddingBottom: '1.46vh',
+    width: '51.94vw',
+    paddingBottom: '3.2vh',
     color: '#8B8B8B',
     fontFamily: 'Favorit',
     fontStyle: 'normal',
     fontWeight: 'normal',
-    fontSize: '20px',
-    lineHeight: '24px',
+    fontSize: '16px',
+    lineHeight: '20px',
     textTransform: 'capitalize',
+    paddingLeft: '3.36vw',
+    paddingRight: '3.36vw',
+    
 }
 
 export const miniGalleryImage: CSS.Properties = {
@@ -40,7 +52,7 @@ export const miniGalleryColumn1: CSS.Properties = {
 export const miniGalleryMobile: CSS.Properties = {
     float: 'left',
     width: '100%',
-    height: '86.60vh',
+    height: '30.98vh',
 }
 
 export const miniGalleryColumn2: CSS.Properties = {
@@ -52,7 +64,7 @@ export const miniGalleryColumn2: CSS.Properties = {
 
 export const miniGallerySubText: CSS.Properties = {
     alignContent: 'left',
-    paddingTop: '1vh',
+    paddingTop: '1.5vh',
     clear: 'both',
     color: '#8B8B8B',
     fontFamily: 'Favorit',
@@ -62,3 +74,27 @@ export const miniGallerySubText: CSS.Properties = {
     lineHeight: '20px',
     textTransform: 'capitalize',
 }
+
+export const miniGallerySubTextMobile: CSS.Properties = {
+    alignContent: 'left',
+    paddingTop: '4.17vh',
+    clear: 'both',
+    color: '#8B8B8B',
+    fontFamily: 'Favorit',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
+    fontSize: '16px',
+    lineHeight: '20px',
+    textTransform: 'capitalize',
+    paddingLeft: '3.36vw',
+    paddingRight: '3.36vw',
+}
+
+export const miniGalleryImageMobile: CSS.Properties = {
+    float: 'left',
+    width: '100%',
+    height: '30.98vh',
+    margin: '0px',
+    objectFit: 'fill',
+}
+

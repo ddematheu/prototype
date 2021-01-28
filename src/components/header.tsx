@@ -20,10 +20,15 @@ export default function Header (props : HeaderProps) {
   return(
     <header style={headerStyle}>
         <Logo logoOnClick={props.headerOnClick} width={props.width}/>
-        {props.width > 700 ? <Menu menuOnClick={props.headerOnClick} language = {props.language} setLanguage = {props.setLanguage} /> : <MobileMenu 
+        {props.width > 700 ? <Menu 
+        menuOnClick={props.headerOnClick} 
+        language = {props.language} 
+        setLanguage = {props.setLanguage} /> : 
+        <MobileMenu 
         language = {props.language}
         setLanguage = {props.setLanguage}
-        menuOnClick={props.headerOnClick}/> }
+        menuOnClick={props.headerOnClick}
+        width={props.width}/> }
     </header>
   );
 }

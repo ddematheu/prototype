@@ -1,8 +1,8 @@
 module.exports = {
-  pathPrefix: "/prototype",
+  pathPrefix: "",
   siteMetadata: {
-    title: `MUSA Prototype`,
-    description: `TODO`,
+    title: `Musa Architectos`,
+    description: `Webpage for Musa Architectos`,
     author: `David de Matheu`,
   },
   plugins: [
@@ -12,6 +12,15 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          "UA-188063360-1", // Google Analytics / GA
+        ],
       },
     },
     `gatsby-transformer-sharp`,
@@ -26,7 +35,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/musa-icon.png`, // This path is relative to the root of the site.
       },
     },
     {

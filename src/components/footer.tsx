@@ -1,10 +1,10 @@
 import React from "react"
-import {copyrightStyle, facebookStyle, footerStyle, instagramStyle, socialStyle, twitterStyle} from './styles/footer.styles';
+import {copyrightStyle, facebookStyle, footerStyle, instagramStyle, socialStyle, twitterStyle, footerStyleMobile} from './styles/footer.styles';
 import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image"
 
 export interface FooterProps{
-
+    width: number;
 }
 
 export default function Footer (props : FooterProps) {
@@ -44,10 +44,8 @@ export default function Footer (props : FooterProps) {
         `)
 
   return(
-    <footer style={footerStyle}>
+    <footer style={props.width > 700 ? footerStyle : footerStyleMobile}>
         <div style={socialStyle}>
-            {/*<Img fixed={logos.facebook.childImageSharp.fixed} style={facebookStyle}/>
-            <Img fixed={logos.twitter.childImageSharp.fixed} style={twitterStyle}/>*/}
             <a href={data.allContentfulSocial.nodes[0].instagram}><Img fixed={data.instagram.childImageSharp.fixed} style={instagramStyle} /></a>
         </div>
         <div style={copyrightStyle}>
