@@ -10,7 +10,7 @@ const IndexPage = () => (
       <title>Musa Arquitectos</title>
       <link rel="canonical" href="http://mysite.com/example" />
     </Helmet>
-    <Construction/>
+    <Layout/>
   </div>
 )
 
