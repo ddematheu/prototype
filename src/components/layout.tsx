@@ -82,7 +82,7 @@ export default function Layout (props:LayoutProps){
     }
   }`)
 
-  const [layoutState, setLayoutState] = useState(LayoutTypes.Home);
+  const [layoutState, setLayoutState] = useState(null);
   const [projectSelect, setProject] = useState(null);
 
   const [width, setWidth] = useState(701)
@@ -91,6 +91,7 @@ export default function Layout (props:LayoutProps){
   useEffect(() => {
     window.addEventListener("resize", () => setWidth(window.innerWidth))
     setWidth(window.innerWidth)
+    setLayoutState(LayoutTypes.Home)
   }, [])
 
   useEffect(() => {
