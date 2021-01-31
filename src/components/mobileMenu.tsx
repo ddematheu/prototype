@@ -54,7 +54,7 @@ export default function MobileMenu (props: MobileMenuProps): JSX.Element{
 
     const [extended, setExtended] = useState(false);
 
-    const duration = 200;
+    const duration = 300;
 
     return (
     <div >
@@ -67,7 +67,6 @@ export default function MobileMenu (props: MobileMenuProps): JSX.Element{
         <TransitionGroup>
             {extended &&
             <CSSTransition in={extended} timeout={duration} classNames="mobile-menu">         
-                    <div >
                         <div style={mobileMenuStyle}>
                             <div style={mobileMenuContentStyle}>
                                 <div style={projectStyleMobile} onClick={(e) => {
@@ -99,7 +98,6 @@ export default function MobileMenu (props: MobileMenuProps): JSX.Element{
                                 </div>
                             </div>
                         </div>
-                    </div>
             </CSSTransition>
             }
         </TransitionGroup>

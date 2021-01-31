@@ -1,20 +1,16 @@
 .toggle {
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
 .mobile-menu-enter{
-  opacity: 0;
+  opacity: 0.1;
 }
 
 .mobile-menu-enter-active{
-  opacity: 0;
-}
-
-.mobile-menu-enter-done{
   opacity: 1;
-  transition: opacity 0.2s linear;
-  -webkit-transition: opacity 0.2s linear;
-  -moz-transition: opacity 0.2s linear;
+  transition: opacity 0.3s linear;
+  -webkit-transition: opacity 0.3s linear;
+  -moz-transition: opacity 0.3s linear;
 }
 
 .mobile-menu-exit{
@@ -22,7 +18,7 @@
 }
 .mobile-menu-exit-active{
   opacity: 0;
-  transition: opacity 0.2s linear;
-  -webkit-transition: opacity 0.2s linear;
-  -moz-transition: opacity 0.2s linear;
+  transition: opacity 0.3s linear;
+  -webkit-transition: opacity 0.3s linear;
+  -moz-transition: opacity 0.3s linear;
 }

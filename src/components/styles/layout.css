@@ -13,8 +13,7 @@
 
 .layout-exit-active{
   opacity: 0;
-  transform: scaleY(0.9);
-  transition: opacity 1000ms, transform 1000ms;
+  transition: opacity 1000ms;
 }
 
 html {

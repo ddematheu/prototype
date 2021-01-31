@@ -13,8 +13,8 @@ export const contactPageStyle: CSS.Properties = {
 
 export const contactPageStyleMobile: CSS.Properties = {
     width: '100vw',
-    paddingLeft: '3.4vw',
-    paddingRight: '3.4vw',
+    paddingLeft: 'max(3.4vw, 26px)',
+    paddingRight: 'max(3.4vw, 26px)',
     paddingTop: '20.07vh',
     paddingBottom: '5vh',
     margin: '0',

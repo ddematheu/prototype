@@ -13,7 +13,7 @@ export const logoStyle: CSS.Properties = {
     fontSize: '20px',
     lineHeight: '34px',
     letterSpacing: '0.05em',
-    zIndex: 10,
+    zIndex: 9,
 }
 
 export const logoStyleMobile: CSS.Properties = {
@@ -29,5 +29,5 @@ export const logoStyleMobile: CSS.Properties = {
     fontSize: '28px',
     lineHeight: '34px',
     letterSpacing: '0.05em',
-    zIndex: 10,
+    zIndex: 100,
 }

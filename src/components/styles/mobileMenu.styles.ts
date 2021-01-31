@@ -1,10 +1,10 @@
 import CSS from 'csstype';
 
 export const mobileMenuStyle: CSS.Properties = {
-    position: 'absolute',
+    position: 'fixed',
     width:'100%',
     height: '100vh',
-    zIndex: 9,
+    zIndex: 10,
     left: 0,
     top: 0,
     backgroundColor: 'rgba(255,255,255, 0.9)',
@@ -19,28 +19,6 @@ export const mobileMenuContentStyle: CSS.Properties = {
     zIndex: 11,
     position: 'relative',
     top: '30.28vh'
-}
-
-export const line1StyleClose: CSS.Properties = {
-    position: 'absolute',
-    width: '41.86px',
-    top: '5.14vh',
-    left: '86.48vw',
-    height: '0px',
-    border: '1px solid #000000',
-    transform: 'rotate(45deg)',
-    zIndex: 11,
-}
-
-export const line2StyleClose: CSS.Properties = {
-    position: 'absolute',
-    width: '41.86px',
-    top: '5.14vh',
-    left: '86.48vw',
-    height: '0px',
-    border: '1px solid #000000',
-    transform: 'rotate(-45deg)',
-    zIndex: 11,
 }
 
 export const line1StyleOpen: CSS.Properties = {
@@ -59,6 +37,28 @@ export const line2StyleOpen: CSS.Properties = {
     width: '21.21px',
     top: '5.14vh',
     left: '90vw',
+    height: '0px',
+    border: '1px solid #000000',
+    transform: 'rotate(-45deg)',
+    zIndex: 11,
+}
+
+export const line1StyleClose: CSS.Properties = {
+    position: 'absolute',
+    width: '41.86px',
+    top: '6vh',
+    left: '85.7vw',
+    height: '0px',
+    border: '1px solid #000000',
+    transform: 'rotate(45deg)',
+    zIndex: 11,
+}
+
+export const line2StyleClose: CSS.Properties = {
+    position: 'absolute',
+    width: '41.86px',
+    top: '6vh',
+    left: '85.4vw',
     height: '0px',
     border: '1px solid #000000',
     transform: 'rotate(-45deg)',

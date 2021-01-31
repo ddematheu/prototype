@@ -1,0 +1,17 @@
+.construction-enter{
+  opacity: 0;
+}
+
+.construction-enter-active{
+  opacity: 1;
+  transition: opacity 1000ms;
+}
+
+.construction-exit{
+  opacity: 1;
+}
+
+.construction-exit-active{
+  opacity: 0;
+  transition: opacity 1000ms;
+}

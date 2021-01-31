@@ -20,7 +20,7 @@ export const miniGalleryMobileTotal: CSS.Properties = {
 
 export const miniGalleryTitle: CSS.Properties = {
     alignContent: "left",
-    width: '51.94vw',
+    width: '70.94vw',
     paddingBottom: '3.2vh',
     color: '#8B8B8B',
     fontFamily: 'Favorit',
@@ -29,9 +29,8 @@ export const miniGalleryTitle: CSS.Properties = {
     fontSize: '16px',
     lineHeight: '20px',
     textTransform: 'capitalize',
-    paddingLeft: '3.36vw',
-    paddingRight: '3.36vw',
-    
+    paddingLeft: 'max(3.4vw, 26px)',
+    paddingRight: 'max(3.4vw, 26px)',
 }
 
 export const miniGalleryImage: CSS.Properties = {
@@ -86,8 +85,8 @@ export const miniGallerySubTextMobile: CSS.Properties = {
     fontSize: '16px',
     lineHeight: '20px',
     textTransform: 'capitalize',
-    paddingLeft: '3.36vw',
-    paddingRight: '3.36vw',
+    paddingLeft: 'max(3.4vw, 26px)',
+    paddingRight: 'max(3.4vw, 26px)',
 }
 
 export const miniGalleryImageMobile: CSS.Properties = {

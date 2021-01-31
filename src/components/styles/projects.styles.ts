@@ -5,9 +5,8 @@ export const projectsStyle: CSS.Properties = {
     position:'relative',
     height: '100%',
     paddingTop: '15.07vh',
-    paddingLeft: '3.4vw',
-    paddingRight: '3.4vw',
-    zIndex: 1,
+    paddingLeft: 'max(3.4vw, 26px)',
+    paddingRight: 'max(3.4vw, 26px)',
 }
 
 export const projectsDescriptionStyle: CSS.Properties = {

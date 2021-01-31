@@ -14,7 +14,6 @@ import Projects from "./projects";
 import Footer from "./footer";
 import { layoutStyle,layoutContentStyle } from "./styles/layout.styles";
 import {TransitionGroup, Transition, CSSTransition } from "react-transition-group"
-import {useTransition, animated} from "react-spring"
 
 export interface LayoutProps{
 
